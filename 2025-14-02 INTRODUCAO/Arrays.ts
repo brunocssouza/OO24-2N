@@ -1,0 +1,2 @@
+// Arrays
+let listaDecCompra:string[]
