@@ -1,7 +1,7 @@
 import { Ingrediente } from "./ingrediente";
 
 export class Pocao {
-    private nome!:string;
+    private nome!:string;    // '!' Inibe avisos de falta de inicialização de variável por ela só ser declarada no futuro.
     private ingredientes: Ingrediente[] = [];
     private efeito: string[] = [];
 
