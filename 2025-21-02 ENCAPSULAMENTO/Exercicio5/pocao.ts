@@ -3,17 +3,17 @@ import { Ingrediente } from "./ingrediente";
 export class Pocao {
     private nome!:string;    // '!' Inibe avisos de falta de inicialização de variável por ela só ser declarada no futuro.
     private ingredientes: Ingrediente[] = [];
-    private efeito: string[] = [];
+    private efeitos: string[] = [];
 
     // Set
     setNome(nomeRecebido:string):void {
         this.nome = nomeRecebido;
         console.log('\nNome da pocao definido!');
     };
-    addIngrediente(...ingredienteRecebido:Ingrediente[]):void { // ... permite aceitar ilimitadas quantidades de argumentos
+    setIngredientes(...ingredienteRecebido:Ingrediente[]):void { // '...' Permite aceitar ilimitadas quantidades de argumentos
         for (let i:number=0; i < ingredienteRecebido.length; i++) {
             this.ingredientes.push(ingredienteRecebido[i]);
-            this.efeito.push(ingredienteRecebido[i].getEfeito())
+            this.efeitos.push(ingredienteRecebido[i].getEfeito())
             console.log(`Ingrediente ${ingredienteRecebido[i].getNome()} adicionado!`);
         } 
     };
@@ -27,8 +27,8 @@ export class Pocao {
     // Main
     prepararPocao():void {
         console.log(`Preparando ${this.nome}... \nPocao criada! Os seguintes efeitos foram aplicados a ela:`);
-        for (let i:number=0; i < this.efeito.length; i++) {
-            console.log(this.efeito[i])
+        for (let i:number=0; i < this.efeitos.length; i++) {
+            console.log(this.efeitos[i])
         };
     };
 };
@@ -52,6 +52,6 @@ ingrediente3.setEfeito('Visao noturna');
 // Criacao da pocao
 let pocao = new Pocao();
 pocao.setNome('Pocao de Renascimento');
-pocao.addIngrediente(ingrediente1, ingrediente2, ingrediente3);
+pocao.setIngredientes(ingrediente1, ingrediente2, ingrediente3);
 pocao.getInfo();
 pocao.prepararPocao();
