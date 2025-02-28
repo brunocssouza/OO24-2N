@@ -1,3 +1,7 @@
+// Desenvolva a classe ChapeuSeletor com o atributo privado casa. 
+// Crie um método selecionarCasa que, aleatoriamente (Math.floor(Math.random() * 4+1)), atribui uma das quatro casas de Hogwarts. 
+// Crie um método exibirCasa para mostrar a casa.
+
 export class ChapeuSeletor {
     private casa!:string;
 
