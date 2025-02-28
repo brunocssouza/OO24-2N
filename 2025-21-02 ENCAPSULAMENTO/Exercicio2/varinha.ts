@@ -1,3 +1,7 @@
+// Crie a classe Varinha com os atributos privados: madeira, núcleo e tamanho. 
+// Crie os métodos getters e setters. 
+// Crie um método exibirDetalhes, como "Varinha de madeira de [madeira], núcleo de [núcleo] e tamanho [tamanho]".
+
 export class Varinha {
     private madeira!:string;
     private nucleo!:string;
