@@ -1,3 +1,8 @@
+// Crie um sistema de poções com as classes Poção e Ingrediente: 
+// A classe Poção deve ter os atributos privados nome, ingredientes (lista de objetos da classe Ingrediente) e efeito.
+// A classe Ingrediente deve ter os atributos privados nome e quantidade. 
+// Implemente métodos para adicionar ingredientes à poção, exibir a lista de ingredientes e seus efeitos, e preparar a poção, que combina os efeitos de todos os ingredientes.
+
 import { Ingrediente } from "./ingrediente";
 
 export class Pocao {
