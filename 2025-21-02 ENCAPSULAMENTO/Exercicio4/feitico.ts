@@ -1,3 +1,7 @@
+// Crie a classe Feitiço com os atributos privados nome, tipo (ex: defesa, ataque, cura) e poder. 
+// Implemente os métodos getters e setters. 
+// Crie um método lancarFeitiço que simule o lançamento do feitiço, como "O feitiço [nome] do tipo [tipo] com poder [poder] foi lançado!".
+
 export class Feitico {
     private nome!:string;
     private tipo!:string;
