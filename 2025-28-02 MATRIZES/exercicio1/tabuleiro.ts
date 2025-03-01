@@ -1,5 +1,3 @@
-
-
 const rs:any = require('readline-sync')
 
 import { Jogador } from "./jogador";
@@ -22,19 +20,19 @@ export class Tabuleiro {
 
     private posicaoAtual:number[] = [0, 0, 1];
 
-    private area:number[][] = [];
-    private areaTemporaria:any[][];
+    private matriz:number[][] = [];
+    private matrizTemporaria:any[][];
 
 
     constructor(jogadorRecebido:Jogador, dimensaoRecebida:number[]) {
         this.jogador = jogadorRecebido
-        this.area = this.setArea(dimensaoRecebida);
-        this.areaTemporaria = this.setArea(dimensaoRecebida);
-        this.areaTemporaria[0][0] = 'X'
+        this.matriz = this.setMatriz(dimensaoRecebida);
+        this.matrizTemporaria = this.setMatriz(dimensaoRecebida);
+        this.matrizTemporaria[0][0] = 'X'
     };
 
     // Set
-    private setArea(dimensaoRecebida:number[]):number[][] {
+    private setMatriz(dimensaoRecebida:number[]):number[][] {
 
         let contador:number = 1
         let tempListFinal:number[][] = [];
@@ -70,10 +68,10 @@ export class Tabuleiro {
 
     // Armazena a posicao atual do jogador
     private salvarPosicao():void {
-        for (let i:number=0; i < this.areaTemporaria.length; i++) {
-            for (let j:number=0; j < this.areaTemporaria.length; j++) {
-                if (this.areaTemporaria[i][j] === 'X') {
-                    this.posicaoAtual = [i, j, this.area[i][j]]
+        for (let i:number=0; i < this.matrizTemporaria.length; i++) {
+            for (let j:number=0; j < this.matrizTemporaria.length; j++) {
+                if (this.matrizTemporaria[i][j] === 'X') {
+                    this.posicaoAtual = [i, j, this.matriz[i][j]]
                     this.procurarLoot()
                 }
             }
@@ -81,7 +79,7 @@ export class Tabuleiro {
     }
 
     private restaurarPosicaoOriginal():void {
-        this.areaTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]] = this.area[this.posicaoAtual[0]][this.posicaoAtual[1]]
+        this.matrizTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]] = this.matriz[this.posicaoAtual[0]][this.posicaoAtual[1]]
     }
 
     // Tenta realizar o movimento recebido
@@ -89,9 +87,9 @@ export class Tabuleiro {
 
         switch(direcao) {
             case "W":
-                if (this.areaTemporaria[this.posicaoAtual[0]-1]) {
+                if (this.matrizTemporaria[this.posicaoAtual[0]-1]) {
                     this.restaurarPosicaoOriginal()
-                    this.areaTemporaria[this.posicaoAtual[0]-1][this.posicaoAtual[1]] = 'X'
+                    this.matrizTemporaria[this.posicaoAtual[0]-1][this.posicaoAtual[1]] = 'X'
                     console.log("Movimento efetuado!")
                     this.salvarPosicao()
                 } else {
@@ -99,9 +97,9 @@ export class Tabuleiro {
                 }
                 break;
             case "A":
-                if (this.areaTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]-1]) {
+                if (this.matrizTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]-1]) {
                     this.restaurarPosicaoOriginal()
-                    this.areaTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]-1] = 'X'
+                    this.matrizTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]-1] = 'X'
                     console.log("Movimento efetuado!")
                     this.salvarPosicao()
                 } else {
@@ -109,9 +107,9 @@ export class Tabuleiro {
                 }
                 break;
             case "D":
-                if (this.areaTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]+1]) {
+                if (this.matrizTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]+1]) {
                     this.restaurarPosicaoOriginal()
-                    this.areaTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]+1] = 'X'
+                    this.matrizTemporaria[this.posicaoAtual[0]][this.posicaoAtual[1]+1] = 'X'
                     console.log("Movimento efetuado!")
                     this.salvarPosicao()
                 } else {
@@ -119,9 +117,9 @@ export class Tabuleiro {
                 }
                 break;
             case "S":
-                if (this.areaTemporaria[this.posicaoAtual[0]+1]) {
+                if (this.matrizTemporaria[this.posicaoAtual[0]+1]) {
                     this.restaurarPosicaoOriginal()
-                    this.areaTemporaria[this.posicaoAtual[0]+1][this.posicaoAtual[1]] = 'X'
+                    this.matrizTemporaria[this.posicaoAtual[0]+1][this.posicaoAtual[1]] = 'X'
                     console.log("Movimento efetuado!")
                     this.salvarPosicao()
                 } else {
@@ -136,7 +134,8 @@ export class Tabuleiro {
     // O jogo em si
     public jogar():void {
         while (true) {
-            console.log(`${'='.repeat(10)} Tabuleiro ${'='.repeat(10)}`), console.table(this.areaTemporaria)
+            console.log(`${'='.repeat(10)} Tabuleiro ${'='.repeat(10)}`)
+            console.table(this.matrizTemporaria)
 
             // Oferece ao jogador opcoes
             const possiveisOpcoes:string[][] = [['W', 'SUBIR'],['A', 'VIRAR A ESQUERDA'],['S', 'DESCER'],['D', 'VIRAR A DIREITA'],['I', 'ACESSAR SEU INVENTARIO'], ['Q', 'SAIR DO JOGO']]
