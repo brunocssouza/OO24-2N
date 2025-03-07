@@ -34,8 +34,7 @@ for (let i=0; i < listaTributos.length; i++) {
 
 // Testando os métodos da classe Organizador
 console.log('===================== [ORGANIZADOR] =====================')
-console.log(`====== Informações de ${organizador1.getNome()} ====== \nDistritos:`)
-console.log(organizador1.getDistritos('nomes'), '\n')
+console.log(`====== Informações de ${organizador1.getNome()} ====== \nDistritos: ${organizador1.getDistritos('nomes')}\n`)
 
 organizador1.criarDesastre();
 organizador1.liberarAnimais();
