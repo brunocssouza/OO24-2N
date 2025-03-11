@@ -1,3 +1,5 @@
+package JogosVorazes;
+
 import JogosVorazes.classes.Distrito;
 import JogosVorazes.classes.Habilidade;
 import JogosVorazes.classes.Organizador;
