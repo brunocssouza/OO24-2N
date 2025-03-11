@@ -1,9 +1,6 @@
 package JogosVorazes;
 
-import JogosVorazes.classes.Distrito;
-import JogosVorazes.classes.Habilidade;
-import JogosVorazes.classes.Organizador;
-import JogosVorazes.classes.Tributo;
+import JogosVorazes.classes.*
 
 public class Main {
     public static void main(String[] args) {
