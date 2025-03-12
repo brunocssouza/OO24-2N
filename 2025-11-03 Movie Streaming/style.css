@@ -1,0 +1,34 @@
+body {
+    background-color: rgba(0, 0, 0, 0.836);
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aliceblue;
+    text-align: center;
+}
+
+.tela_principal{
+    border: 0.2rem solid white;
+    border-radius: 10px;
+    width: 100%;
+    padding-bottom: 5rem;   
+}
+
+.categoria {
+    border: 0.1rem solid white;
+    padding-bottom: 2rem;
+}
+
+.filmes {
+    border: 0.1rem solid rgb(4, 133, 214);
+    width: 15%;
+    padding-bottom: 20rem;
+    margin-left: 1rem;
+}
+
+.filmes:hover {
+    transform: scale(1.05);
+}
+
+.filmes img {
+    object-fit: cover;
+}
