@@ -91,8 +91,8 @@ export class Animal {
         }
     }
 
-    protected emitirSom(): void {
-        console.log(`> ${this.nome} (${this.especie}) fez barulho!`, '\n');
+    protected emitirSom(): string {
+        return `> ${this.nome} (${this.especie}) fez barulho!`
     }
 
     public mover(): void {
