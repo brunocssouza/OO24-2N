@@ -35,8 +35,11 @@ export class Mamifero extends Animal {
     }
 
     // Métodos diversos
-    public emitirSom() {
-        console.log(`> ${this.nome} (${this.especie}): ${this.som.toUpperCase()}`, '\n');
+    
+
+    public emitirSomMamifero():void {
+        let emitirSoms = this.emitirSom()
+        console.log(`${emitirSoms} ${this.som.toUpperCase()}`, '\n');
     }
 
     public amamentar() {
