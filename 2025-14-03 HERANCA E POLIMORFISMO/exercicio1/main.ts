@@ -35,7 +35,11 @@ const mamifero3 = new Mamifero(
     "Hiii-Hiii"
 );
 
+
+Animal.getInventario
+
 // Exemplo de um tipo de polimorfose
+
 function interagir(animalRecebido1: Animal, animalRecebido2: Animal) {
     const buscarRecurso1 = animalRecebido1.buscarRecurso()
     const buscarRecurso2 = animalRecebido2.buscarRecurso()
@@ -44,9 +48,13 @@ function interagir(animalRecebido1: Animal, animalRecebido2: Animal) {
         console.log("Inventário atual dos animais:"), console.table(Animal.getInventario());
     }
 }
-interagir(mamifero1, mamifero2);
+
+for (let i=0; i < 10; i++) {
+    interagir(mamifero1, mamifero2);
+}
+
 
 mamifero1.amamentar();
-mamifero3.emitirSom();
+mamifero3.emitirSomMamifero();
 mamifero2.mudarPelo();
 mamifero1.mover();
