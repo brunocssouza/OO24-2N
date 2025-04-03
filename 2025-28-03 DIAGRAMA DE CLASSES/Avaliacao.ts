@@ -14,16 +14,16 @@ export class Avaliacao {
         this.data = Misc.inverterData(dataRecebida)
         this.peso = pesoRecebido
         this.altura = alturaRecebida
-        this.imc = imcRecebido
         this.observacoes = observacoesRecebidas
-        this.imc = pesoRecebido/Math.pow(alturaRecebida, 2)
+        this.imc = imcRecebido
     }
 
     calcularIMC():number {
+        this.imc = Misc.arredondar2Decimais(this.peso/Math.pow(this.altura, 2))
         return this.imc
     }
 
     gerarRelatorio():string {
-        return `Aluno: ${this.aluno} | Data: ${this.data} | Peso: ${this.peso} | Altura: ${this.altura} | IMC: ${this.calcularIMC} | Observações: ${this.observacoes}`
+        return `Aluno: ${this.aluno.getNome()} | Data: ${Misc.formatarData(this.data)} | Peso: ${this.peso} | Altura: ${this.altura} | IMC: ${this.imc} | Observações: ${this.observacoes}`
     }
 }

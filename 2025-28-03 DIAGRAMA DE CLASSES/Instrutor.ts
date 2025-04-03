@@ -9,4 +9,12 @@ export class Instrutor extends Usuario {
         this.especialidade = especialidadeRecebida
         this.cref = crefRecebido
     }
+
+    getEspecialidade():string {
+        return this.especialidade
+    }
+
+    getCref():string {
+        return this.cref
+    }
 }

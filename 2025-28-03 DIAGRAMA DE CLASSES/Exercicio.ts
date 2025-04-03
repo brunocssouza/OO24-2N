@@ -9,5 +9,16 @@ export class Exercicio {
         this.repeticoes = repeticoesRecebidas
     }
 
+    getNome():string {
+        return this.nome
+    }
+
+    getSeries():number {
+        return this.series
+    }
+
+    getRepeticoes():number {
+        return this.repeticoes
+    }
     
 }

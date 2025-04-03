@@ -13,6 +13,10 @@ export class Equipamento {
         return this.nome
     }
 
+    getDescricao():string {
+        return this.descricao
+    }
+
     verificarDisponibilidade():boolean {
         return this.disponibilidade
     }

@@ -16,15 +16,15 @@ export class Aluno extends Usuario {
         this.dataInscricao = Misc.inverterData(dataInscricaoRecebida)
     }
 
-    getFreqPresenca():string {
+    getFrequencia():string {
 
         if (this.presencas) {
-            const diasTotais = this.presencas[this.presencas.length-1] - this.dataInscricao;
+            const diasTotais:number = this.presencas[this.presencas.length-1] - this.dataInscricao;
 
-            let faltas = 0;
+            let faltas:number = 0;
             for (let i=0; i < this.presencas.length; i++) {
                 if (this.presencas[i+1]) {
-                    const difPresencas = this.presencas[i+1] - this.presencas[i] - 1;
+                    const difPresencas:number = this.presencas[i+1] - this.presencas[i] - 1;
 
                     if (difPresencas > 0) {
                         faltas = faltas + difPresencas;
@@ -32,8 +32,9 @@ export class Aluno extends Usuario {
                 }   
             }
             console.log("Faltas:", faltas)
-            console.log("Dias Totais:", diasTotais)
-            return `${100-faltas/diasTotais*100}%`;
+            const frequencia:number = 100-faltas/diasTotais*100
+
+            return `${Misc.arredondar2Decimais(frequencia)}%`;
 
         } else {
             return "0%";
@@ -63,7 +64,7 @@ export class Aluno extends Usuario {
 
     //
     calcularIMC():number {
-        return this.peso/Math.pow(this.altura, 2)
+        return Misc.arredondar2Decimais(this.peso/Math.pow(this.altura, 2))
     }
 
     marcarPresenca(dataRecebida:number):void {

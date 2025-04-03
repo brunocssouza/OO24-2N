@@ -14,7 +14,7 @@ export class Treino {
         this.instrutor = instrutorRecebido
         this.exercicios = exerciciosRecebidos
         
-        const dataRecebidaInvertida = Misc.inverterData(dataRecebida)
+        const dataRecebidaInvertida:number = Misc.inverterData(dataRecebida)
         if (this.aluno.getDataInscricao() < dataRecebidaInvertida) {
             this.aluno.marcarPresenca(dataRecebidaInvertida)
             this.data = dataRecebidaInvertida

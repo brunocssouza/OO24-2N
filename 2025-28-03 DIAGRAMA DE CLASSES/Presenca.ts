@@ -9,5 +9,12 @@ export class Presenca {
         this.data = dataRecebida
     }
 
+    getAluno():Aluno {
+        return this.aluno
+    }
+
+    getData():number {
+        return this.data
+    }
     
 }
