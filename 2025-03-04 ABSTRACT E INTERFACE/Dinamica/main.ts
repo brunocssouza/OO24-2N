@@ -67,7 +67,6 @@ monstros.push(new Monstro('Antares', 11000, Misc.retornarElementosAleatorios(hab
 // SIMULAÇÃO
 function simular(cacador:Cacador, qtdeBatalhas:number) {
 
-
     function equiparHabilidadeAleatoria(alvoRecebido:Monstro|Cacador) {
         let habilidadeAleatoria:Habilidade;
         do {
