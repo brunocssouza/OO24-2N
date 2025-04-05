@@ -64,7 +64,7 @@ monstros.push(new Monstro('Lorde Vampiro', 5700, Misc.retornarElementosAleatorio
 monstros.push(new Monstro('Thomas André', 9990, Misc.retornarElementosAleatorios(habilidades, 6)));
 monstros.push(new Monstro('Antares', 11000, Misc.retornarElementosAleatorios(habilidades, 6)));
 
-// SIMULAÇÃO
+// Simulação
 function simular(cacador:Cacador, qtdeBatalhas:number) {
 
     function equiparHabilidadeAleatoria(alvoRecebido:Monstro|Cacador) {
