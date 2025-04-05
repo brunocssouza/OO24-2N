@@ -40,7 +40,7 @@ export class Monstro {
         this.hpAtual = valorRecebido
     }
 
-    atualizarHP(valorRecebido:number) {
+    atualizarHP(valorRecebido:number):void {
         this.hpAtual = this.hpAtual + valorRecebido
     }
 

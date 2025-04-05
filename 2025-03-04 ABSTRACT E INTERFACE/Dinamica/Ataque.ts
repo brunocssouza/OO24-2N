@@ -8,8 +8,6 @@ export class Ataque implements Habilidade{
     valor:number;
     descricao:string;
     
-    
-
     constructor(nomeRecebido:string, tipoRecebido:string, valorRecebido:number, descricaoRecebida:string) {
         this.nome = nomeRecebido
         this.tipo = tipoRecebido

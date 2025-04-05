@@ -45,7 +45,7 @@ export class Cacador {
         this.hpAtual = valorRecebido
     }
 
-    atualizarHP(valorRecebido:number) {
+    atualizarHP(valorRecebido:number):void {
         this.hpAtual = this.hpAtual + valorRecebido
     }
 

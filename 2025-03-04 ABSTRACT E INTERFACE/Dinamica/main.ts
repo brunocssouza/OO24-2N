@@ -9,7 +9,7 @@ import { Misc } from "./Misc";
 const rs = require('readline-sync')
 
 // Habilidades (Ataque, Magia e Cura)
-const habilidades = [];
+const habilidades:Habilidade[] = [];
 habilidades.push(new Ataque('Mutilação', 'Ofensivo', 2138, 'Mirar nos pontos vitais do alvo, inflingindo dano crítico'));
 habilidades.push(new Ataque('Decapitação Sombria', 'Ofensivo', 945, 'Golpear rapidamente e preciso visando a cabeça do inimigo, envolto em energia sombria'));
 habilidades.push(new Ataque('Rajada de Golpes Fantasmas', 'Ofensivo', 563, 'Executar múltiplos ataques em alta velocidade, deixando apenas rastros ilusórios'));
@@ -25,8 +25,8 @@ habilidades.push(new Cura('Vitae', 'Defensivo', 1395, 'Tratar ferimentos e resta
 habilidades.push(new Cura('Renovação Sombria', 'Defensivo', 3015, 'Utilizar energia sombria para regenerar ferimentos rapidamente'));
 
 // Caçadores
-const cacador1 = new Cacador('José das Couve', 67, 6400, Misc.retornarElementosAleatorios(habilidades, 5))
-const cacador2 = new Cacador('Pedro da Farinha', 19, 2900, Misc.retornarElementosAleatorios(habilidades, 3))
+const cacador1:Cacador = new Cacador('José das Couve', 67, 6400, Misc.retornarElementosAleatorios(habilidades, 5))
+const cacador2:Cacador = new Cacador('Pedro da Farinha', 19, 2900, Misc.retornarElementosAleatorios(habilidades, 3))
 
 // =========== DINÂMICA ============
 cacador1.exibirDetalhes()
@@ -65,9 +65,9 @@ monstros.push(new Monstro('Thomas André', 9990, Misc.retornarElementosAleatorio
 monstros.push(new Monstro('Antares', 11000, Misc.retornarElementosAleatorios(habilidades, 6)));
 
 // Simulação
-function simular(cacador:Cacador, qtdeBatalhas:number) {
+function simular(cacador:Cacador, qtdeBatalhas:number):void {
 
-    function equiparHabilidadeAleatoria(alvoRecebido:Monstro|Cacador) {
+    function equiparHabilidadeAleatoria(alvoRecebido:Monstro|Cacador):void {
         let habilidadeAleatoria:Habilidade;
         do {
             habilidadeAleatoria = Misc.retornarElementosAleatorios(alvoRecebido.getHabilidades(), 1)
@@ -76,12 +76,12 @@ function simular(cacador:Cacador, qtdeBatalhas:number) {
         alvoRecebido.equiparHabilidade(habilidadeAleatoria)
     }
 
-    let pontuacao = 0;
-    let qtdeVitorias = 0;
-    let qtdeDerrotas = 0;
-    let qtdeEmpates = 0;
-    let ultimoMonstroBatalhado;
-    for (let i=1; i <= qtdeBatalhas; i++) {
+    let pontuacao:number = 0;
+    let qtdeVitorias:number = 0;
+    let qtdeDerrotas:number = 0;
+    let qtdeEmpates:number = 0;
+    let ultimoMonstroBatalhado!:Monstro;
+    for (let i:number=1; i <= qtdeBatalhas; i++) {
 
         let monstro:Monstro = monstros[Math.floor(Math.random() * monstros.length)]; // Seleciona um monstro aleatório
         while(monstro == ultimoMonstroBatalhado) {                                   // Roleta o monstro aleatório selecionado caso ele já tenha sido batalhado recentemente.
@@ -92,7 +92,7 @@ function simular(cacador:Cacador, qtdeBatalhas:number) {
         cacador.exibirDetalhes()
         monstro.exibirDetalhes()
 
-        let rodada = 1
+        let rodada:number = 1
         while (rodada <= 20) {  // Infinitos turnos, onde ambos participantes lançam sua habilidade aleatória equipada, até que um deles tenha seu HP zerado.
             console.log(`\n============= MONSTRO ${i} - RODADA ${rodada} =============`)
             console.log(`Caçador (${cacador.getNome()}): ${cacador.getHPAtual()}/${cacador.getHPMaximo()}`)
