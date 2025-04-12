@@ -1,7 +1,9 @@
+import { Feitico } from "./Feitico"
+
 export abstract class CriaturaMagica {
-    private nome:string
-    private tipo:string         // Exemplo: Voador.
-    private poder:string        // Exemplo: Soltar fogo. (Se for Bruxo, deixar nulo)
+    protected nome:string
+    protected tipo:string               // Exemplo: Voador, Pássaro...
+    protected poder:string              // Se for Bruxo, deixar nulo. Caso contrário, segue um exemplo: Soltar fogo.
 
     constructor(nomeRecebido:string, tipoRecebido:string, poderRecebido:string) {
         this.nome = nomeRecebido
@@ -9,5 +11,16 @@ export abstract class CriaturaMagica {
         this.poder = poderRecebido  
     }
 
-    abstract usarMagia():void;  // Se bruxo, esse método será usado dentro de lancarFeitiço() da classe Bruxo.
+    getNome():string {
+        return this.nome
+    }
+    getTipo():string {
+        return this.tipo
+    }
+    getPoder():string {
+        return this.poder
+    }
+
+    abstract usarMagia(magiaRecebida:Feitico|string):number;    // Se bruxo, esse método usará o lancarFeitiço() da classe Bruxo.
+                                                                // Caso contrário, usar o poder recebido.
 }
