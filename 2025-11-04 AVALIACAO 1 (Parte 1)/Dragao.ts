@@ -15,6 +15,6 @@ export class Dragao extends CriaturaMagica {
 
     usarMagia():number {
         console.log(`${this.nome} começou a ${this.poder.toLowerCase()} (${this.dano}))`)
-        return this.getDano()
+        return this.dano
     }
 }

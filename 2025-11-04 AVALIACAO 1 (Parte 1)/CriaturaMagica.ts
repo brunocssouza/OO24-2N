@@ -21,6 +21,6 @@ export abstract class CriaturaMagica {
         return this.poder
     }
 
-    abstract usarMagia(magiaRecebida:Feitico|string):number;    // Se bruxo, esse método usará o lancarFeitiço() da classe Bruxo.
+    abstract usarMagia(feiticoRecebido?:Feitico):number;    // Se bruxo, esse método usará o lancarFeitiço() da classe Bruxo.
                                                                 // Caso contrário, usar o poder recebido.
 }

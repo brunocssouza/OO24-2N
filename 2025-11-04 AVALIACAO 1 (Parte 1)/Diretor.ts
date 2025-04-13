@@ -12,17 +12,20 @@ export class Diretor implements Grimorio {
         return this.nome
     }
 
-    consultarFeitiço(nomeFeitiçoRecebido: string):void {
+    consultarFeitiço(nomeFeitiçoRecebido:string):void {
+        let feitiçoEncontrado:Feitico|null = null;
         for (let feitico of Feitico.feiticos) {
             if (feitico.getNome().toLowerCase().trim() == nomeFeitiçoRecebido.toLowerCase().trim()) {
                 console.log("[✔] Feitiço encontrado:")
-                console.log(`Nome: ${feitico.getNome()}`)
-                console.log(`Dano: ${feitico.getDano()}`)
-                console.log(`Descrição: ${feitico.getDescricao()}`)
-
-            } else {
-                console.log("[✗] Feitiço inserido não encontrado.")
+                feitiçoEncontrado = feitico
+                break
             }
         }
+        if (!feitiçoEncontrado) {
+            console.log("[✗] Feitiço inserido não encontrado.")
+        } else {
+            return feitiçoEncontrado.mostrarDescricao()
+        }
+        
     }
 }

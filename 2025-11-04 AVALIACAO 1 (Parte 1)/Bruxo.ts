@@ -19,14 +19,14 @@ export class Bruxo extends CriaturaMagica {
         return this.habilidades
     }
 
-    getDano(feiticoRecebido:Feitico):number {
-        return this.poderMagico + feiticoRecebido.getDano()
-    }
-
     usarMagia(feiticoRecebido:Feitico):number {
-        console.log(`${this.nome} está conjurando uma magia...`)
-        this.lançarFeitiço(feiticoRecebido)
-        return this.getDano(feiticoRecebido)
+        if (this.habilidades.includes(feiticoRecebido)) {
+            console.log(`${this.nome} está conjurando uma magia...`)
+            this.lançarFeitiço(feiticoRecebido)
+            return this.poderMagico+feiticoRecebido.getDano()
+        }
+        console.log(`${this.nome} não possui o feitiço especificado!`)
+        return 0;
     }
 
     lançarFeitiço(feiticoRecebido:Feitico):void {
