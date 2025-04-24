@@ -1,6 +1,7 @@
 import { Feitico } from "./Feitico";
 import { Grimorio } from "./Grimorio";
 
+// É implementada a interface Grimorio nessa classe Diretor
 export class Diretor implements Grimorio {
     private nome:string
     private static diretor:Diretor
