@@ -35,7 +35,9 @@ export class Bruxo extends CriaturaMagica {
         feiticoRecebido.lançar()
     }
     
-    // Recebe um feitiço como parâmetro (primeiramente verificando se o Bruxo possui o mesmo), chama 'lançarFeitiço' e retorna: (o dano base do Feitiço) + (o poder mágico do Bruxo)
+    // 1. Recebe um feitiço como parâmetro (primeiramente verificando se o Bruxo possui o mesmo)
+    // 2. Chama 'lançarFeitiço'
+    // 3. Retorna: (o dano base do Feitiço) + (o poder mágico do Bruxo)
     usarMagia(feiticoRecebido:Feitico):number {
         if (this.habilidades.includes(feiticoRecebido)) {
             console.log(`${this.nome} está conjurando uma magia...`)
