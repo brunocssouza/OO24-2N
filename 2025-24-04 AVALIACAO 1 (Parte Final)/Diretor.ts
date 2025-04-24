@@ -19,6 +19,7 @@ export class Diretor implements Grimorio {
         return this.nome
     }
 
+    // Recebe uma string como parâmetro e verifica se, dentre todos os feitiços já instanciados, algum possui o atributo de mesmo nome.
     consultarFeitiço(nomeFeitiçoRecebido:string):void {
         console.log(`> Consultando o feitiço ${nomeFeitiçoRecebido} no grimório de ${this.nome}...`)
         let feitiçoEncontrado:Feitico|null = null;
