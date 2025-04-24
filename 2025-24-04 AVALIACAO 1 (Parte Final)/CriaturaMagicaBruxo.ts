@@ -8,7 +8,6 @@ export class Bruxo extends CriaturaMagica {
     private casa:Casa
     private habilidades:Feitico[]   // Feitiços que possui
     private poderMagico:number      // Dano do Bruxo
-    private static bruxos:Bruxo[] = []
 
     constructor(nomeRecebido:string, hpRecebido:number, tipoRecebido:string, poderRecebido:string, varinhaRecebida:string, casaRecebida:Casa, habilidadesRecebidas:Feitico[], poderMagicoRecebido:number) {
         super(nomeRecebido, hpRecebido, tipoRecebido, poderRecebido)
@@ -16,13 +15,8 @@ export class Bruxo extends CriaturaMagica {
         this.casa = casaRecebida
         this.habilidades = habilidadesRecebidas
         this.poderMagico = poderMagicoRecebido
-        Bruxo.bruxos.push(this)
     }
 
-
-    static getAll():Bruxo[] {
-        return Bruxo.bruxos
-    }
     getCasa():Casa {
         return this.casa
     }
@@ -32,7 +26,6 @@ export class Bruxo extends CriaturaMagica {
     getVarinha():string {
         return this.varinha
     }
-
     getHabilidades():Feitico[] {
         return this.habilidades
     }
