@@ -3,7 +3,6 @@ import { Guardiao } from "./CriaturaMagicaGuardiao"
 export class Reptil extends Guardiao {
     constructor(nomeRecebido:string, hpRecebido:number, tipoRecebido:string, poderRecebido:string, danoRecebido:number, segredoRecebido:string) {
         super(nomeRecebido, hpRecebido, tipoRecebido, poderRecebido, danoRecebido, segredoRecebido)
-        Guardiao.guardioes.push(this)
     }
 
     protegerSegredo():void {
