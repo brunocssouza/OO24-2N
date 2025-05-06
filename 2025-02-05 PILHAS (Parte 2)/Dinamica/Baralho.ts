@@ -1,23 +1,30 @@
-import { Carta } from "./Carta";
+import { Pilha } from "./Pilha";
 
-class Baralho {
-    private deck:Carta[];
+export class Baralho {
+    private cartas:Pilha;
 
-    constructor(deck:Carta[]) {
-        this.deck = deck
+    constructor(cartas:Pilha) {
+        this.cartas = cartas
     }
 
-    public getDeck() {
-        return this.deck
+    public getCartas() {
+        return this.cartas
     }
 
     public embaralhar() {
-        let array = this.deck
+        let array = this.cartas.getCartas()
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-        return array;
+        this.cartas.setCartas(array)
     }
 
+    public comprarCarta() {
+        console.log(this.cartas.retirarTopo())
+    }
+
+    public visualizarTopo() {
+        console.log(this.cartas.peek())
+    }
 }
